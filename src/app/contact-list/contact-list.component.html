@@ -1,0 +1,32 @@
+<div class="container">
+    <mat-form-field appearance="fill" class="search-field">
+        <mat-label>Search</mat-label>
+        <input matInput [(ngModel)]="search" placeholder="Search" (input)="loadContacts()">
+    </mat-form-field>
+    <button mat-raised-button color="primary" [routerLink]="['/add']" class="add-button">Add New Contact</button>
+    <mat-accordion class="accordion">
+        <mat-expansion-panel *ngFor="let contact of contacts">
+            <mat-expansion-panel-header>
+                <mat-panel-title>
+                    {{ contact.name }}
+                </mat-panel-title>
+            </mat-expansion-panel-header>
+
+            <div *ngFor="let email of contact.emails; let i = index">
+                <p><strong>Email {{ i + 1 }}:</strong> {{ email.email }}</p>
+            </div>
+            <div *ngFor="let phone of contact.phones; let i = index">
+                <p><strong>Phone {{ i + 1 }}:</strong> {{ phone.phone_number }}</p>
+            </div>
+
+            <mat-action-row>
+                <button mat-raised-button color="warn" (click)="deleteContact(contact.id)">Delete</button>
+                <button mat-raised-button color="primary" [routerLink]="['/contact', contact.id]">View</button>
+                <button mat-raised-button color="accent" [routerLink]="['/edit', contact.id]">Edit</button>
+            </mat-action-row>
+        </mat-expansion-panel>
+    </mat-accordion>
+
+    <mat-progress-spinner *ngIf="isLoading" mode="indeterminate"></mat-progress-spinner>
+    
+</div>

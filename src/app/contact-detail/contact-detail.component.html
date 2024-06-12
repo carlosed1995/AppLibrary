@@ -1,0 +1,32 @@
+<div class="container">
+  <mat-progress-spinner *ngIf="!contact" class="center-spinner" mode="indeterminate"></mat-progress-spinner>
+    <mat-card *ngIf="contact" class="center-card">
+        <mat-card-header class="center-header">
+          <mat-card-title>{{ contact.name }}</mat-card-title>
+        </mat-card-header>
+        <mat-divider></mat-divider>
+        <mat-card-content>
+            <mat-list>
+                <h3 class="mat-subheading-1 center-text">Phones:</h3>
+                <mat-divider></mat-divider>
+                <mat-list-item *ngFor="let phone of contact.phones" class="center-text">
+                    {{ phone.phone_number }}
+                </mat-list-item>
+                <h3 class="mat-subheading-1 center-text">Emails:</h3>
+                <mat-divider></mat-divider>
+                <mat-list-item *ngFor="let email of contact.emails" class="center-text">
+                    {{ email.email }}
+                </mat-list-item>
+                <h3 class="mat-subheading-1 center-text">Addresses:</h3>
+                <mat-divider></mat-divider>
+                <mat-list-item *ngFor="let address of contact.addresses" class="center-text">
+                    {{ address.address }}, {{ address.city }}, {{ address.state }}, {{ address.postal_code }}
+                </mat-list-item>
+            </mat-list>
+        </mat-card-content>
+        <div class="center-text">
+          <button mat-raised-button color="primary" [routerLink]="['/']">Back</button>
+      </div>
+    </mat-card>
+
+</div>

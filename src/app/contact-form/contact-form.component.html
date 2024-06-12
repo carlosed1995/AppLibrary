@@ -1,0 +1,72 @@
+<div class="container">
+  <mat-progress-spinner *ngIf="!contact && isEditing" class="center-spinner" mode="indeterminate"></mat-progress-spinner>
+<mat-card *ngIf="!isEditing && !contact || isEditing && contact">
+  <mat-card-title class="contact-form"> 
+    <h2  class="mat-display-1 title">{{ isEditing ? 'Edit' : 'Add' }} Contact</h2>
+  </mat-card-title>
+
+  <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" class="contact-form">
+    <div class="form-array">
+    <mat-form-field class="form-field">
+      <mat-label>Name</mat-label>
+      <input matInput id="name" formControlName="name">
+    </mat-form-field>
+  </div>
+
+    <div class="form-array margin-bottom" formArrayName="phones">
+      <div *ngFor="let phone of phones.controls; let i = index" class="form-row">
+        <mat-form-field class="form-field">
+          <mat-label>Phone</mat-label>
+          <input matInput [id]="'phone' + i" [formControlName]="i">
+        </mat-form-field>
+        <button mat-icon-button color="warn" (click)="removePhone(i)" class="delete-button" *ngIf="phones.length > 1">
+          <mat-icon>delete_outline</mat-icon>
+        </button>
+      </div>
+      <button mat-raised-button color="primary" (click)="addPhone()" type="button" class="form-button">Add Phone</button>
+    </div>
+    <div class="form-array margin-bottom" formArrayName="emails">
+      <div *ngFor="let email of emails.controls; let i = index" class="form-row">
+        <mat-form-field class="form-field">
+          <mat-label>Email</mat-label>
+          <input matInput [id]="'email' + i" [formControlName]="i">
+        </mat-form-field>
+        <button mat-icon-button color="warn" (click)="removeEmail(i)" class="delete-button" *ngIf="emails.length > 1">
+          <mat-icon>delete_outline</mat-icon>
+        </button>
+      </div>
+      <button mat-raised-button color="primary" (click)="addEmail()" type="button" class="form-button">Add Email</button>
+    </div>
+
+    <div class="form-array margin-bottom" formArrayName="addresses">
+      <div *ngFor="let address of addresses.controls; let i = index"  [formGroupName]="i">
+        <mat-form-field class="form-field-address">
+          <mat-label>Address</mat-label>
+          <input matInput id="address{{ i }}" formControlName="address">
+        </mat-form-field>
+        <mat-form-field class="form-field-address">
+          <mat-label>City</mat-label>
+          <input matInput id="city{{ i }}" formControlName="city">
+        </mat-form-field>
+        <mat-form-field class="form-field-address">
+          <mat-label>State</mat-label>
+          <input matInput id="state{{ i }}" formControlName="state">
+        </mat-form-field>
+        <mat-form-field class="form-field-address">
+          <mat-label>Postal Code</mat-label>
+          <input matInput id="postal_code{{ i }}" formControlName="postal_code">
+        </mat-form-field>
+        <button mat-icon-button color="warn" (click)="removeAddress(i)" class="delete-button" *ngIf="addresses.length > 1">
+          <mat-icon>delete_outline</mat-icon>
+        </button>
+      </div>
+      <hr>
+      <button mat-raised-button color="primary" (click)="addAddress()" type="button">Add Address</button>
+    </div>
+    <div class="content-bottons">
+      <button mat-raised-button color="accent" type="submit" >Submit</button>
+      <a mat-button [routerLink]="['/']">Cancel</a>
+    </div>
+  </form>
+</mat-card>
+</div>

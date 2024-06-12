@@ -1,0 +1,28 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+  }
+  
+  .center-card {
+    width: 50%;
+    margin-bottom: 20px;
+  }
+  
+  .center-text {
+    text-align: center;
+  }
+
+  .center-header {
+    display: flex;
+    justify-content: center;
+  }
+
+  .center-spinner {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }

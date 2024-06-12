@@ -1,27 +1,54 @@
-# FrontCapiTest
+# AppLibrary
+Aplicación de Libreta de Direcciones
+ 
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.1.1.
+## Descripción
 
-## Development server
+Esta es una aplicación web desarrollada con Angular 17 que permite a los usuarios gestionar sus contactos con información adicional y realizar búsquedas basadas en múltiples atributos. La aplicación utiliza un backend construido con Laravel y una base de datos MySQL.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Requisitos
 
-## Code scaffolding
+- Angular CLI: 17.3.8
+- Node.js: 20.11.0
+- npm: 10.4.0 
+- Backend en Laravel (ver [instrucciones del backend](../backend/README.md))
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Instalación
 
-## Build
+Sigue estos pasos para instalar y ejecutar la aplicación:
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+### 1. Clonar el Repositorio
 
-## Running unit tests
+Clona el repositorio a tu máquina local usando el siguiente comando:
+ 
+git clone https://github.com/tu_usuario/AppLibrary.git
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+### 2. Navegar al Directorio del Proyecto
+Ve al directorio del proyecto:
 
-## Running end-to-end tests
+cd AppLibrary
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+### 3. Instalar Dependencias
+Instala las dependencias del proyecto utilizando npm:
 
-## Further help
+npm install
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+### 4. Configurar el Backend
+Asegúrate de tener el backend de Laravel configurado y en ejecución. Sigue las instrucciones en el README.md del backend para configurarlo y ejecutarlo.
+
+### 5. Configurar el Archivo environment.ts
+Asegúrate de que el archivo src/environments/environment.ts contenga la URL correcta de tu API. Debería verse algo así:
+
+export const environment = {
+  production: false,
+  apiUrl: 'http://localhost:8000/api'  // URL de tu API
+};
+
+### 6. Ejecutar la Aplicación
+Inicia la aplicación Angular con el siguiente comando:
+ng serve
+
+### 7. Abrir la Aplicación en el Navegador
+Abre tu navegador web y navega a la siguiente URL:
+
+http://localhost:4200
