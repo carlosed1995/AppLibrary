@@ -21,7 +21,7 @@ Sigue estos pasos para instalar y ejecutar la aplicación:
 
 Clona el repositorio a tu máquina local usando el siguiente comando:
  
-git clone https://github.com/tu_usuario/AppLibrary.git
+git clone https://github.com/carlosed1995/AppLibrary.git
 
 ### 2. Navegar al Directorio del Proyecto
 Ve al directorio del proyecto:
