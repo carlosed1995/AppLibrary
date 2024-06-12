@@ -41,7 +41,7 @@ Asegúrate de que el archivo src/environments/environment.ts contenga la URL cor
 
 export const environment = {
   production: false,
-  apiUrl: 'http://localhost:8000/api'  // URL de tu API
+  apiUrl: 'http://localhost:8000/api/contacts'  // URL de tu API
 };
 
 ### 6. Ejecutar la Aplicación
